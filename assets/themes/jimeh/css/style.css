@@ -338,6 +338,16 @@ code, pre, .gist, .gist-data, .gist-meta {
 
 /* @end */
 
+/* @group code.has-jax */
+    code.has-jax {
+      font: inherit; 
+      font-size: 100%; 
+      background: inherit; 
+      border: inherit;
+    }
+
+/* @end */
+
 /* @group .gist */
 
 .gist {
