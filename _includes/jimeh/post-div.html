@@ -4,18 +4,18 @@
 	</div>
 
 	<h1 class="post-title">
-		<a href="/blog{{ page.url }}/">{{ page.title }}</a>
-		<div class="post-title-sub">
-			by Jim Myhrberg – tags:
-			{% for tag in page.categories %} <a href="/blog/tag/{{tag}}/" rel="tag"><i class="hash">#</i>{{tag}}</a>{% if forloop.last != true %},{% endif %}{% endfor %}
-		</div>
+          <a href="{{BASE_PATH}}{{ page.url }}/">{{ page.title }}</a>
+        <div class="post-title-sub">
+          by {{ site.author.name }} – tags:
+          {% for tag in page.categories %} 
+          <a href="/blog/tag/{{tag}}/" rel="tag"><i
+              class="hash">#</i>{{tag}}</a>
+          {% if forloop.last != true %},{% endif %}{% endfor %}
+        </div>
 	</h1>
 
 	<div class="post-content">
 		{{ page.content }}
 	</div>
 	
-	<p class="post-comment-link">
-		<a href="/blog{{ page.url }}/#disqus_thread">Comments</a>
-	</p>
 </div>
