@@ -141,9 +141,15 @@ code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inher
 #### Finally, wrap your latex code in the *code* tags
 
 This:
-<pre>
-`\[ \begin{aligned} \dot{x} & = \sigma(y-x) \\ \dot{y} & = \rho x - y - xz \\ \dot{z} & = -\beta z + xy \end{aligned} \]`
-</pre>
+{% highlight latex%}
+`\begin{equation} 
+    \begin{aligned} 
+        \dot{x} & = \sigma(y-x) \\ 
+        \dot{y} & = \rho x - y - xz \\ 
+        \dot{z} & = -\beta z + xy 
+    \end{aligned} 
+\end{equation}`
+{% endhighlight %}
 
 Becomes
 `\[ \begin{aligned} \dot{x} & = \sigma(y-x) \\ \dot{y} & = \rho x - y - xz \\ \dot{z} & = -\beta z + xy \end{aligned} \]`
