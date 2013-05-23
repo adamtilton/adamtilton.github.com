@@ -12,3 +12,5 @@ Thumbs.db
 favicon.ico
 
 *.swp
+
+serve/
