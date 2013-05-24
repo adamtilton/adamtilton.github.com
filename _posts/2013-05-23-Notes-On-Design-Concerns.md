@@ -1,3 +1,11 @@
+---
+layout: post
+title: "Notes on Design Concerns"
+description: ""
+category: 
+tags: [notes, python, design, computer science, architecture]
+---
+
 [1]:  http://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller
 [2]:  http://en.wikipedia.org/wiki/Aspect-oriented_programming
 [3]:  http://en.wikipedia.org/wiki/Separation_of_concerns
@@ -18,81 +26,55 @@
 [18]: http://upload.wikimedia.org/wikipedia/commons/thumb/7/72/ER_Diagram_MMORPG.png/450px-ER_Diagram_MMORPG.png
 [19]: http://en.wikipedia.org/wiki/Three_schema_approach
 
-## Introduction
-This article address the details of the software architecture. The three
-components (layers) of the system are: model, view, and controller. 
-
-1. __Model:__ Consist of data, rules, logic, and function. Used to store
-   and manipulate state.
-1. __View:__ Any output representation. The user interface bits. 
-1. __Controller:__ The brain, mediates input converting it into commands.
-
-
-## Goal
-The goal is to perform separation the concerns by developing a modular
-software architecture. A [concern][15] is a particular set of
+## Introduction 
+The goal is to develop an software architecture that separates the
+concerns into modules. A [concern][15] is a particular set of
 information that has an effect on the code. It can be as general as the
 details of a database interaction, or as specific as performing a
 primitive calculation. [Separation of concern][3] is a design principle
-for separating a computer program into distinct section, such that each
+for separating a computer program into distinct sections, such that each
 section addresses separate concerns. 
 
 Separation of concerns is not always possible. [Cross-cutting
 concerns][4] are aspects of a program that affect other concerns, and
-often are not able to be cleanly decomposed from the rest of the system.
-These concerns can often cause problems in design and implementation,
+often these are not able to be cleanly decomposed from the rest of the
+system. These concerns can cause problems in design and implementation,
 including scattering (code duplication), tangling (significant
 dependencies), or both. 
 
-## The Domain Model
-A [domain model][16] is a conceptual model of all the topics related to
-a specific problem. It describes the various entities, their attributes,
-roles, and relationships, plus the constraints that govern the problem
-domain. The model is created to represent the vocabulary and key
-concepts of the problem domain. 
+This article discusses details of the software architecture design. The
+software architecture will need three main layers: computations, data
+management, and user interaction. Below are described potential design
+paradigms that provide patterns for achieving this. 
 
-Our domain model is for a general filtering problem. The three
-components of a filtering problem include:
-
-1. __Signal:__ The variable intended to be estimated;
-1. __Measurements:__ The observations made on the signal; and 
-1. __Filters:__ The algorithms used to reconstruct the signal from the
-   measurements.
-
-### Signal
-The signal is a state vector comprised of all the states of the signal.
-It can be constructed from multiple targets, each of which has its own
-state-vector. For instance, consider the situation where there are two
-targets, each with a two state vector: $\[ X_j, Y_j \]$.
-
-
-## Paradigms Addressing Concerns
+## Potential Design Paradigms
 
 ### [Model View Controller (MVC)][1]
-Model view controller (MVC) is a software architecture patter which
+Model view controller (MVC) is a software architecture pattern which
 separates the representation of information from the user's interaction
-with it. 
+with it. There are three main componenets:
 
-1. __Model:__ Consist of data, rules, logic, and function. Used to store
-   and manipulate state.
-1. __View:__ Any output representation. The user interface bits. 
-1. __Controller:__ The brain, mediates input converting it into commands.
+1. __Model:__ Consists of data, rules, logic, and functions. This layer
+   controls manipulation of the state, and storing of the data.
+1. __View:__ Any output representation, e.g. the GUI.
+1. __Controller:__ The brain, which mediates converting input from the user
+   into commands.
 
 Component interactions:
 
-1. The __controller__ can send commands to its associated view to change the
-   view's presentation of the model. It can also send commands the
-   model to update the model's state. 
-1. The __model__ notifies its associated views and controllers when there
-   has been a change in its state. This notification allows the views to
-   produce updated output, and th controllers to change the available
-   set of commands. 
-1. A __view__ requests from the model the information that it needs to
-   generate an output representation to the user. 
+1. The __controller:__
+    1. send commands to its associated view to change the view's presentation
+       of the model; and
+    1. it can also send commands the model to update the model's state. 
+1. The __model:__ 
+    1. notifies it's associated views to produce update output; and
+    1. notifies it's controllers controllers to change the available set of commands. 
+1. A __view:__ 
+    1. requests from the model the information that it needs to generate an
+       output representation to the user. 
 
 ![Model View Controller][13]
 
-#### [Further explanation][14]
 MVC decouples views and models by establishing a subscribe/notify
 protocol between them. A view must ensure that its appearance reflects
 the state of the model. Whenever the model's data changes,the model
@@ -106,8 +88,7 @@ others without requiring the changed object to know details of the
 others. 
 
 The main relationships in MVC are described by the Observer, Composite,
-and Strategy Patterns. 
-
+and Strategy Patterns. See [Design Pattens][14]
 
 ### [Model-View-Presenter][6]
 Model-view-presenter (MVP) is a derivative of the MVC patter. It is
@@ -124,45 +105,18 @@ Eventually, the model becomes strictly a domain model.
    from repositories (the model), and formates it for display in the
    view.
 
-## [Common Layers in an Information System Logical Architecture][7]
-The following four layers are the most common layers in  logical
-multilayer architecture for an information system with an OO design. A
-layer is a group of classes that have the same set of link-time module
-dependencies to other modules. In other words, a layer is a group of
-components that are reusable in similar circumstances. This is often
-expressed in terms of import dependencies
-
-1. __Presnetation Layer:__ 
-1. __Application Layer:__
-1. __Business Layer:__
-1. __Infrastructure Layer:__ or data access layer (DAL), provides access to
-   data stored in persistent storage. It hides the complexity of the
-   underlying data store from the external world. Here, all calls to the
-   database are centralized. 
-
-## [Data Access Object (DAO)][8]
-A data access object is an object that provides an abstract interface to
-some type of database or other persistence mechanism. DAOs provide some
-specific data operations without exposing details of the database.
-
-## [Observer Pattern][9]
-The observer pattern is a software design patter in which an object,
-called the subject, maintains a list of its dependents, called
-observers, and notifies them automatically of any stat changes, usually
-by calling one of their methods.
-
-## [Presnetation-Abstraction-Control (PAC)][10]
-Presentation-abstration-control is an interaction-oriented software
+### [Presnetation-Abstraction-Control (PAC)][10]
+Presentation-abstraction-control is an interaction-oriented software
 architecture, and is similar to MVC. It separates the interactive system
-into three types of componenets responsible for specific aspects of the
-application;s functionality. 
+into three types of components responsible for specific aspects of the
+application's functionality. 
 
 1. __Abstraction:__ Retrieves and processes the data.
 1. __Presentation:__ Formats the visual and audio presentation of data.
 1. __Control:__ Handles things such as the flow of control and
    communication between the other two components. 
 
-## [Multitier Architechture][11]
+### [Multitier Architechture][11]
 Multi-tier architecture is a pattern in which presentation, application
 processing, and data management functions are logically separated. The
 most common use is three-tier architecture, which has the following
@@ -177,14 +131,46 @@ three tiers:
 ![Three-tier example][12]
 
 
-### Comparison with MVC Architecture
-The fundamental difference is that the presentation tier never
-communicates with the data tier. Conceptually, the three-tier
+The fundamental difference between three-tier and MVC is that the presentation
+tier never communicates with the data tier. Conceptually, the three-tier
 architecture is linear, where the MVC architecture is triangular. 
 
 
 
-## [Database Normalization][5]
+## The Domain Model
+A [domain model][16] is a conceptual model of all the topics related to
+a specific problem. It describes the various entities, their attributes,
+roles, and relationships, plus the constraints that govern the problem
+domain. The model is created to represent the vocabulary and key
+concepts of the problem domain. 
+
+Our domain model should be developed to describe the general filtering
+problem. The three components of a filtering problem include:
+
+1. __Signal:__ The variable intended to be estimated;
+1. __Measurements:__ The observations made on the signal; and 
+1. __Filters:__ The algorithms used to reconstruct the signal from the
+   measurements.
+
+### Signal
+The signal is a state vector comprised of all the states of the signal.
+It can be constructed from multiple targets, each of which has its own
+state-vector. For instance, consider the situation where there are two
+targets, each with a two state vector: $\[ X_j, Y_j \]$.
+
+## More Notes
+### [Data Access Object (DAO)][8]
+A data access object is an object that provides an abstract interface to
+some type of database or other persistence mechanism. DAOs provide some
+specific data operations without exposing details of the database.
+
+### [Observer Pattern][9]
+The observer pattern is a software design patter in which an object,
+called the subject, maintains a list of its dependents, called
+observers, and notifies them automatically of any stat changes, usually
+by calling one of their methods.
+
+### [Database Normalization][5]
 Database normalization is the process of organizing the fields and
 tables of a relational database to minimize redundancy and dependency.
 The objective is to isolate data so that additions, deletions, and
@@ -198,7 +184,9 @@ by allowing the separation of cross-cutting concerns. It entails
 breaking down program logic into distinct parts (so called concerns).
 Cross-cutting concerns cut across multiple abstractions in a program.
 
-## [Entity-Relationship (ER) Model][17]
+
+## Database Design Paradigms
+### [Entity-Relationship (ER) Model][17]
 An entity-relationship (ER) model is a data model for describing a database in
 an abstract way. In the case of a relational database, which stores data
 in tables, some of the data in these tables point to data in other
@@ -207,7 +195,7 @@ called entity-relationship diagrams.
 
 ![Entity-Relationship Diagram][18]
 
-### [Three Schema Approach][19]
+#### [Three Schema Approach][19]
 There are three levels of ER models that may be developed
 
 1. __Conceptual Data Model:__ This is the highest level ER that contains
@@ -225,4 +213,3 @@ There are three levels of ER models that may be developed
    instantiated as a database. Therefore, each physical ER model must
    contain enough detail to produce a database and each physical ER
    model is technology dependant. 
-
