@@ -427,14 +427,11 @@ blockquote {
   margin-left: auto;
 }
   #about .info {
-    color: #bbb;
-    margin-top: auto;
-    margin-left: auto;
-    width: 100%;
     text-align: center;
   }
+    #about .info .connections {
+    }
     #about .info .connections a {
-      color: #bbb;
       padding-right: 5px;
       padding-bottom: 10px;
     }
