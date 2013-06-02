@@ -419,15 +419,17 @@ blockquote {
 
 #about {
   width: 600px;
-  /*height: 170px;*/
   position: absolute;
   top: 25%;
   left: 25%;
-  margin-top: auto;
-  margin-left: auto;
+  margin: 0 auto;
+  text-align: justify;
 }
   #about .info {
-    text-align: center;
+    width: 200px;
+    margin: 0 auto;
+    text-align: justify;
+    margin: 0 auto;
   }
     #about .info .connections {
     }
