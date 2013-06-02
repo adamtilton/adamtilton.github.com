@@ -419,6 +419,7 @@ blockquote {
 
 #about {
   width: 600px;
+  /*height: 170px;*/
   position: absolute;
   top: 25%;
   left: 25%;
@@ -426,10 +427,7 @@ blockquote {
   text-align: justify;
 }
   #about .info {
-    width: 200px;
-    margin: 0 auto;
-    text-align: justify;
-    margin: 0 auto;
+    text-align: center;
   }
     #about .info .connections {
     }
