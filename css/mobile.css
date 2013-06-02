@@ -632,8 +632,9 @@ blockquote {
   position: absolute;
   top: 50%;
   left: 50%;
-  margin-top: -150px;
+  /* margin-top: -150px;
   margin-left: -228px;
+  */
 }
   #about .avatar {
     position: absolute;
