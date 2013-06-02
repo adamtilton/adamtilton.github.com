@@ -428,7 +428,8 @@ blockquote {
 }
   #about .info {
     color: #bbb;
-    margin: 0px auto;
+    margin-top: auto;
+    margin-left: auto;
     width: 100%;
     text-align: center;
   }
