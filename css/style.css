@@ -419,12 +419,12 @@ blockquote {
 
 #about {
   width: 600px;
-  height: 170px;
+  /*height: 170px;*/
   position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-top: -150px;
-  margin-left: -228px;
+  top: 25%;
+  left: 25%;
+  margin-top: auto;
+  margin-left: auto;
 }
   #about .info {
     color: #bbb;
