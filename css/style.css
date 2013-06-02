@@ -430,29 +430,12 @@ blockquote {
     color: #bbb;
     margin: 0px auto;
     width: 100%;
+    text-align: center;
   }
-    #about .info .label {
-      text-align: right;
+    #about .info .connections a {
+      color: #bbb;
       padding-right: 5px;
       padding-bottom: 10px;
-    }
-      #about .info .label a {
-        color: #bbb;
-      }
-
-  dl.labels {
-    color: #bbb;
-  }
-    dl.labels dt {
-      float: left;
-      text-align: right;
-      width: 60px;
-    }
-      dl.labels dt a {
-        color: #bbb;
-      }
-    dl.labels dd {
-      margin-left: 68px;
     }
 
 .recent-articles {
