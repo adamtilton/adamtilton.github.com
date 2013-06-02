@@ -638,8 +638,10 @@ blockquote {
 }
   #about .avatar {
     position: absolute;
+    /*
     top: -23px;
     left: -95px;
+    */
     margin: 0px 10px 10px 0px;
     cursor: default;
     /* 
