@@ -14,3 +14,5 @@ favicon.ico
 *.swp
 
 serve/
+blog/
+build/
