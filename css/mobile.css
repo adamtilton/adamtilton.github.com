@@ -1,7 +1,9 @@
 
-/* If you have set your body tag or a wrapper div with class='wrapper' in your desktop styles.css
+/* If you have set your body tag or a wrapper div with class='wrapper'
+ * in your desktop styles.css
    to a specific width then you will want to change it to width: auto;
-   You may also have set a min-width in styles.css.  Best to change that to 0px
+   You may also have set a min-width in styles.css.  Best to change that
+   to 0px
 */
 body, .wrapper
 {
