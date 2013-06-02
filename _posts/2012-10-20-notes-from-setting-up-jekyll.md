@@ -5,8 +5,6 @@ description: ""
 category: 
 tags: [notes, jekyll]
 ---
-{% include JB/setup %}
-
 [1]: http://jekyllbootstrap.com/
 [2]: http://www.archlinux.org/
 [3]: https://github.com/mojombo/jekyll/wiki/

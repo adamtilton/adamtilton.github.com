@@ -5,7 +5,6 @@ description: ""
 category: 
 tags: []
 ---
-{% include JB/setup %}
 [1]: http://docs.python.org/devguide/documenting.html
 [2]: http://docutils.sourceforge.net/rst.html
 [3]: http://docutils.sourceforge.net/

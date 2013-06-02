@@ -5,7 +5,6 @@ description: ""
 category: 
 tags: []
 ---
-{% include JB/setup %}
 [1]: http://rogerdudler.github.com/git-guide/files/git_cheat_sheet.pdf
 [2]: http://try.github.com/levels/
 [3]: https://github.com/AlexZeitler/gitcheatsheet/blob/master/gitcheatsheet.pdf?raw=true
@@ -30,7 +29,7 @@ publish your Git repositories and collaborate with other people.
 Initialize a new git repository, then stage all the files in the directory and
 finally commit the initial snapshot.
 
-{% highlight %}
+{% highlight shell-session %}
 
 $ git init
 $ git add .
@@ -42,7 +41,7 @@ $ git commit -m 'initial commit'
 Create a new branch named featureA, and check it out so it is the active
 branch. Edit and stage some files and finally commit the new snapshot.
 
-{% highlight %}
+{% highlight shell-session %}
 
 $ git branch featureA
 $ git checkout featureA
@@ -56,7 +55,7 @@ $ git commit -m 'add feature A'
 Merge the featureA changes into the master branch context. Finally delete the
 featureA branch.
 
-{% highlight %}
+{% highlight shell-session %}
 
 $ git merge featureA
 $ git branch -d featureA
@@ -70,7 +69,7 @@ repository.  If you do have access to the original repo (i.e. repos on
 MehtaData) then you may clone the original repository, make a change, and push
 back to the original repo on GitHub.
 
-{% highlight %}
+{% highlight shell-session %}
 
 $ git clone git@github.com:MehtaData/SnowStorm.git
 $ cd SnowStorm
