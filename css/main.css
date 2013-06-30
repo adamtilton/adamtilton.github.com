@@ -396,6 +396,26 @@ textarea {
     h3 {
         page-break-after: avoid;
     }
+
+
+    #about {
+      width: 90%;
+      position: absolute;
+      left: 10%;
+      margin: 50% 0 0 -5%;
+    }
+      #about .info {
+        text-align: justify;
+      }
+      #about .info .connections {
+        text-align: left;
+      }
+      #about .info .connections a {
+        padding-right: 5px;
+        padding-bottom: 10px;
+      }
+
+
 }
 
 
