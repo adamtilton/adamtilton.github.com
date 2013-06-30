@@ -32,7 +32,7 @@ textarea {
 body {
     font-size: 1em;
     line-height: 1.4;
-    font: 15px/1.5 'InconsolataMedium';
+    font: 16px/1.5 'InconsolataMedium';
 }
 
 /* Customizations */
@@ -119,11 +119,13 @@ h6 { font-size: 15px; }
     }
 
 #about {
-  width: 50%;
-  position: absolute;
-  left: 50%;
-  margin: 10% 0 0 -25%;
+  width: 480px;
+  margin: 10% auto;
+  text-align: center;
 }
+  #about p{
+    text-align: justify;
+  }
   #about .info {
     text-align: justify;
   }
@@ -144,12 +146,12 @@ h6 { font-size: 15px; }
  */
 
 ::-moz-selection {
-    background: #b3d4fc;
+    background: #ef8a1c;
     text-shadow: none;
 }
 
 ::selection {
-    background: #b3d4fc;
+    background: #ef8a1c;
     text-shadow: none;
 }
 
