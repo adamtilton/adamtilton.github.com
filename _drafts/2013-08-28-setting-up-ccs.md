@@ -1,10 +1,8 @@
 ---
 layout: post
 title: "Git and Github Reference Guide"
-subtitle: "setting up ccs"
-category: blog
-thumbnail: 
-excerpt: "" 
+description: ""
+category: 
 tags: []
 ---
 [1]: http://rogerdudler.github.com/git-guide/files/git_cheat_sheet.pdf

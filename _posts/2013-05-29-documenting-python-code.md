@@ -1,8 +1,10 @@
 ---
 layout: post
 title: "Documenting Python Code"
-description: ""
-category: 
+subtitle: "setting up ccs"
+category: blog
+thumbnail: 
+excerpt: "" 
 tags: []
 ---
 [1]: http://docs.python.org/devguide/documenting.html

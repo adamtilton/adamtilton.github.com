@@ -9,7 +9,7 @@ layouts:     ./_layouts
 
 production_url : http://adamtilton.com
 
-permalink: /:year/:month/:day/:title 
+permalink: /blog/:year/:month/:day/:title 
 
 name: Adam Tilton
 pygments: true

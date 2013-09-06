@@ -1,8 +1,10 @@
 ---
 layout: post
 title: "Notes on Design Concerns"
-description: ""
-category: 
+category: blog
+thumbnail: 
+excerpt: "" 
+tags: []
 tags: [notes, python, design, computer science, architecture]
 ---
 
