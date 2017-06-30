@@ -1,49 +1,28 @@
 ---
-layout: default 
-title: Adam K Tilton
+layout: default
 ---
+{% assign posts_count = (paginator.posts | size) %}
 
-<div id="about">
-  <h1>
-    Hi, my name is <strong>Adam Tilton</strong>.
-  </h1>
-  <hr>
-  <p>
-  I am a founder of <a href="http://rithmio.com">Rithmio</a>,
-  and a graduate student in the <a
-    href="http://csl.illinois.edu/">Coordinated Science Laboratory</a>
-  at the <a href="http://illinois.edu">University of Illinois Urbana
-    Champaign</a>. I work in theory and applications of nonlinear
-  estimation (Bayesian inference).
-  </p>
-  <hr>
-  <div class="info" >
-    <a href="mailto:adamtilton@adamtilton.com">
-      adam@adamtilton.com</a>
-    <br />
-    <a href="http://twitter.com/adamtilton">
-      <img src="images/twitter-24x24.png"/>
-    </a>
-    <a href="http://github.com/adamtilton">
-      <img src="images/github-24x24.png"/>
-    </a>
-    <a href="https://plus.google.com/100244346983175884336">
-      <img src="images/google+-24x24.png"/>
-    </a>
-    <a href="http://www.facebook.com/adamktilton">
-      <img src="images/facebook-24x24.png"/>
-    </a>
-    <a href="http://www.linkedin.com/in/adamktilton">
-      <img src="images/linkedin-24x24.png"/>
-    </a>
-    <a href="https://pinboard.in/u:adamtilton/">
-      <img src="images/pinboard-24x24.png"/>
-    </a>
-    <a href="http://www.slideshare.net/adamtilton">
-      <img src="images/slideshare-24x24.png"/>
-    </a>
-    <a href="https://vimeo.com/adamtilton">
-      <img src="images/vimeo-24x24.png"/>
-    </a>
-  </div>
+<div class="home">
+  {% if posts_count > 0 %}
+    <div class="posts">
+      {% for post in paginator.posts %}
+        <div class="post py3">
+          <p class="post-meta">{{ post.date | date: site.date_format }}</p>
+          <a href="{{ post.url | prepend: site.baseurl }}" class="post-link"><h3 class="h1 post-title">{{ post.title }}</h3></a>
+          <span class="post-summary">
+            {% if post.summary %}
+              {{ post.summary }}
+            {% else %}
+              {{ post.excerpt }}
+            {% endif %}
+          </span>
+        </div>
+      {% endfor %}
+    </div>
+
+    {% include pagination.html %}
+  {% else %}
+    <h1 class='center'>{{ site.text.index.coming_soon }}</h1>
+  {% endif %}
 </div>
